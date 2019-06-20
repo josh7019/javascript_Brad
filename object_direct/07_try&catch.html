@@ -1,0 +1,26 @@
+<script>
+    function button1(){
+        let n=parseInt(Math.random()*101);
+        document.write(n+"<br>");
+        try{
+            button2(n);
+            document.write("good!");
+        }catch(e){
+            return;
+        }finally{
+            document.write("fin");   //即使return了也會執行finally
+        }
+        
+        
+        document.write("here!");
+    }
+    function button2(a){
+        if(a>=60){
+            document.write("test2Ok");
+        }else{
+            throw "oooops!";
+        }
+    }
+</script>
+
+<input type="button" value="test" onclick="button1()">

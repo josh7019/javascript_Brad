@@ -1,0 +1,49 @@
+<h1 id=head></h1>
+<hr>
+<canvas id='canvas' width="480" height="320" style="border: 1px solid" on></canvas>
+<input type="button" onclick="clears()" value="clear">
+<script>
+    canvas=document.getElementById("canvas");
+    let ctx=canvas.getContext('2d');        //渲染
+    // ctx.fillStyle='rgb(255,0,0)';       //畫筆顏色
+    // ctx.fillRect(50,50,100,120);        //矩形填滿
+    
+    // ctx.fillStyle='rgb(255,255,0,0.5)';
+    // ctx.fillRect(70,70,200,200);
+
+    // ctx.strokeStyle="rgb(0,0,255)";
+    // ctx.strokeRect(80,80,50,50);
+
+    // ctx.beginPath();
+    // ctx.moveTo(75,50);
+    // ctx.lineTo(100,75);
+    // ctx.lineTo(100,25);
+    // ctx.fill();
+    let isdraw=false;
+    
+    
+    canvas.onmouseup =function(e){
+        console.log("up");
+        isdraw=false;
+    }
+    canvas.onmousedown =function(e){
+        console.log("down;x:"+e.offsetX+"y:"+e.offsetX);
+        ctx.strokeStyle='rgb(0,0,0)';
+        ctx.beginPath();
+        ctx.moveTo(e.offsetX,e.offsetY)
+        isdraw=true;
+    }
+    // canvas.ondrag =function(e){
+    //     console.log("down;x:"+e.offsetX+"y:"+e.offsetX);
+    // }
+    canvas.onmousemove =function(e){
+        if(isdraw){
+            console.log("x:"+e.offsetX+"y:"+e.offsetY);
+            ctx.lineTo(e.offsetX,e.offsetY);
+            ctx.stroke();
+        }}
+        function clears(){
+            ctx.clearRect(0,0,canvas.width,canvas.height);
+        }   
+        
+</script>

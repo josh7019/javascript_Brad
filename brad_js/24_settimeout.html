@@ -1,0 +1,16 @@
+<input type="button" onclick="go()" value="GO">
+<span id="time"></span>
+<script>
+    let counter=0;
+    let timer;
+    function go(){
+        setInterval(time,1000);
+    }
+    function time(){
+        document.getElementById("time").innerHTML=counter++;
+        
+    }
+    function stopgame(){
+
+    }
+</script>

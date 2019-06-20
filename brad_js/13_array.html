@@ -1,0 +1,60 @@
+<script>
+let p = [0,0,0,0,0,0];
+for(let i=0;i<1000000;i++){
+    var lucky=parseInt((Math.random())*9);
+    p[(lucky>6?lucky-3:lucky)]++;
+}
+
+for(let i=0;i<p.length;i++){
+    document.write(`${i+1}點出現${p[i]}次<br>`)
+}
+
+
+
+
+
+// let a = [1,2,3,4];
+// document.write(typeof(a)+":"+a.length+"<br>")
+// a[4]=123;
+// document.write(a[4]+"<br>");
+// document.write(a.length+"<br>");
+// a[100]=12;
+// document.write(a[100]+"<br>");
+// document.write(a.length+"<br>");
+// a[100]=12;
+// document.write(a[87]+"<br>");
+// document.write(a.length+"<br>");
+
+// var i1=0,i2=0,i3=0,i4=0,i5=0,i6=0;
+// let lucky=0;
+
+// for(let i=0;i<100;i++){
+//     lucky=parseInt((Math.random()*6)+1);
+    
+//     switch (lucky){
+//         case 1:
+//         i1++;
+//         break;
+//         case 2:
+//         i2++;
+//         break;
+//         case 3:
+//         i3++;
+//         break;
+//         case 4:
+//         i4++;
+//         break;
+//         case 5:
+//         i5++;
+//         break;
+//         case 6:
+//         i6++;
+//         break;
+//     }
+// }
+// document.write(`<br>1點:${i1}次<br>2點:${i2}次<br>3點:${i3}次<br>4點:${i4}次<br>5點:${i5}次<br>6點:${i6}次`);
+
+
+
+
+</script>

@@ -1,0 +1,14 @@
+<script src="21_apis.js"></script>
+<script>
+    function ckId(){
+        let id = document.getElementById("id").value;
+        let isright=checkTWId(id);
+        if(!isright){
+            alert("xx");
+        }else{
+            alert("ok");
+        }
+    }
+</script>
+<input type="text" id="id">
+<input type="button" onclick="ckId()" value="check">

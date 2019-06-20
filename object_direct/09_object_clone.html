@@ -1,0 +1,28 @@
+<script src="../myJs/21_apis.js"></script>
+<script>
+let obj={
+    name:"ben",
+    age:18,
+}
+document.write(`name:${obj.name}<br>age:${obj.age}<br>`);
+let obj1=new Object();
+document.write(`name:${obj1.name}<br>age:${obj1.age}<br>`);
+for(let attr in obj){
+    obj1[attr]=obj[attr];
+}
+document.write(`name:${obj1.name}<br>age:${obj1.age}<br>`);
+
+let obj2=clone(obj);
+document.write(`name:${obj1.name}<br>age:${obj1.age}<br>`);
+
+function clone(target){
+    if(typeof(target)!="object") return null;
+    
+    let newobj=new Object();
+    for(let attr in target){
+        //if(target.hasOwnProperty(attr))
+        newobj[attr]=target[attr];
+    }
+    return newobj;
+}
+</script>

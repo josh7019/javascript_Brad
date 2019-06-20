@@ -1,0 +1,87 @@
+<script>
+    let poker_box=new Array();
+    
+// -----------------------------------------------------------------------------------------------
+    //建立值為0-51陣列
+    for(let i=0;i<52;i++){
+        poker_box[i]=i;
+    }
+    let rand;
+    let temp;
+    for(let i=51;i>=0;i--){
+        rand=parseInt(Math.random()*i+1)
+        temp=poker_box[i];
+        poker_box[i]=poker_box[rand];
+        poker_box[rand]=temp;
+        //[poker_box[i],poker_box[rand]]=[poker_box[rand],poker_box[i]];
+    }
+    // [a,b]=[b,a]     兩個數值互換   javascript獨有
+    // let a=1,b=2,c=3;
+    // [a,b,c]=[c,b,a];
+    // document.write(`${a}${b}${c}`);
+    let player=[[],[],[],[]];
+    for(let i=0;i<13;i++){
+        for(let j=0;j<4;j++){
+            player[j][i]=poker_box[i*4+j];
+            //document.write(player[j][i]+"&nbsp&nbsp");
+        }
+        //document.write("<br>");
+    }
+    
+    for(let i=0;i<4;i++){
+        document.write("Player "+i+":");
+        for(let j=0;j<13;j++){
+            let flower=parseInt(player[i][j]/13);
+            let point=player[i][j]%13;
+            let output_flower;
+            let output_point;
+            switch(flower){
+                case 0:output_flower="黑桃";break;
+                case 1:output_flower="紅心";break;
+                case 2:output_flower="方塊";break;
+                case 3:output_flower="梅花";break;                
+            }
+            document.write(output_flower+(point+1)+"&nbsp&nbsp");
+            //document.write(player[i][j]+"&nbsp&nbsp");
+        }
+        document.write("<br>");
+    }
+
+
+    // for(let i in poker_box){
+    //     document.write(poker_box[i]+"<br>");
+    // }
+
+</script>
+
+<table style="border:1px solid ;border-collapse:collapse ;margin:auto ;width:800px;text-align: center;">
+        
+    <script>
+        let suit = ["&spades;","&hearts;","&diams;","&clubs;"];
+        let num  =[1,2,3,4,5,6,7,8,9,10,"A","Q","K"];
+        let flower;
+        let point;
+        
+        for(let p of player){ //取一維陣列
+            document.write("<tr style='border:1px solid;'>");
+            p.sort(function(a,b){return a-b;});    //以小到大排序
+        for(let card of p){     //取2維陣列
+            
+            flower=parseInt(card/13);//取花色
+            point=card%13;      //取點數 
+            let output_flower;
+            let output_point;
+            switch(flower){
+                case 0:output_flower="&spades;";break;
+                case 1:output_flower="&hearts;";break;
+                case 2:output_flower="&diamond;";break;
+                case 3:output_flower="&clubs;";break;                
+            }
+            
+            document.write("<td style='border:1px solid;"+((flower==1||flower==2)?'color:red':'color:black') +"'>"+suit[flower]+num[point]+"</td>");
+        }
+        document.write("<tr>");
+        }
+       
+    </script>
+</table>

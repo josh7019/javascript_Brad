@@ -1,0 +1,60 @@
+<script>
+    let body = document.createElement('body');
+    document.body = body;
+    let head = document.createElement('h1');
+    head.innerHTML = "big shop";
+    document.body.appendChild(head);
+
+    let h1text = document.createTextNode("hello,world");
+    head.appendChild(h1text);
+    h1text.textContent = "hello sheep";
+    let line = document.createElement('hr');
+    body.appendChild(line);
+    let ul = document.createElement('ul');
+    body.appendChild(ul);
+
+    for (let i = 0; i < 3; i++) {
+        let li = document.createElement('li');
+        li.innerHTML = "第" + i + "列";
+        ul.appendChild(li);
+    }
+    let hr2 = line.cloneNode();
+    body.appendChild(hr2);
+    ul.childNodes[1].remove();
+
+    let ul2 = ul.cloneNode();
+    body.appendChild(ul2);
+    for (let i = 0; i < 3; i++) {
+        let li = document.createElement('li');
+        li.innerHTML = "第" + i + "列";
+        ul2.appendChild(li);
+    }
+    let hr3 = line.cloneNode();
+    body.appendChild(hr3);
+
+    let table = document.createElement('table');
+    body.appendChild(table);
+    table.setAttribute('border', "1px");
+    table.setAttribute("width", "800px");
+    table.setAttribute("height", "600px");
+
+    for (let k = 0; k <= 1; k++) {
+        let tr = document.createElement('tr');
+        table.appendChild(tr);
+        tr.setAttribute('border', "1px");
+        tr.setAttribute("height", "300px");
+        for (let i = 2; i <= 5; i++) {
+            let td = document.createElement('td');
+            tr.appendChild(td);
+            for (let j = 1; j <= 9; j++) {
+                td.innerHTML += `${i + k * 4}x${j}=${i * j}<br>`;
+            }
+        }
+    }
+    
+    
+
+
+</script>
+
+

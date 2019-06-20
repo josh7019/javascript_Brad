@@ -1,0 +1,86 @@
+<script src="../myJs/21_apis.js"></script>
+<h1 id=head></h1>
+<hr>
+<canvas id='canvas' width="1024" height="500" style="border: 1px solid" on></canvas>
+<input type="button" onclick="go()" value="move">
+
+<script>
+    canvas = document.getElementById("canvas");
+        let ctx = canvas.getContext('2d');
+        let ball0 = new Image();
+        let ball1 = new Image();
+        let ball2 = new Image();
+        let ball3 = new Image();
+        let ballImg = [ball0, ball1, ball2, ball3]
+        let balls = [];
+        // let ballobj = {
+        //         x: 0,
+        //         y: 0,
+        //         dx: parseInt(Math.random() * 10 + 2),
+        //         dy: parseInt(Math.random() * 15 + 2),
+        //         img: parseInt(Math.random() * 4),
+
+        //     };
+        
+        //背景與圖片處理(影像資料)
+        let bg = new Image();
+        bg.src = "bg.jpg";
+        bg.onload = function () {
+            ctx.drawImage(bg, 0, 0)
+            ball0.src = "ball0.png";
+            ball1.src = "ball1.png";
+            ball2.src = "ball2.png";
+            ball3.src = "ball3.png";
+            ball.onload = function () {
+                ctx.drawImage(ball, ballX, ballY);
+            }
+        }
+
+        //刷新畫布
+        function refreshView() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            ctx.drawImage(bg, 0, 0);
+            
+            for (let i = 0; i < balls.length; i++) {
+                ctx.drawImage(ballImg[balls[i].img], balls[i].x, balls[i].y);
+            }
+        }
+
+        function moveball(obj) {
+            if (obj.x < 0 || obj.x + 64 > canvas.width) {
+                obj.dx = obj.dx * (-1);
+            }
+            if (obj.y < 0 || obj.y + 64 > canvas.height) {
+                obj.dy = obj.dy * (-1);
+            }
+            obj.x += obj.dx; obj.y += obj.dy;
+        }
+
+        function go() {
+            for (let i = 0; i <= balls.length; i++) {
+                moveball(balls[i]);
+            }
+        }
+
+        canvas.onmousedown = function (e) {
+            let ballobj = {
+                x: e.offsetX - 32,
+                y: e.offsetY - 32,
+                dx: parseInt(Math.random() * 10 + 2),
+                dy: parseInt(Math.random() * 15 + 2),
+                img: parseInt(Math.random() * 4),
+
+            };
+            balls[balls.length] = ballobj;
+        //    let ballProduce=clone(ballobj);
+        //     ballProduce.x=e.offsetX - 32;
+        //     ballProduce.y=e.offsetY - 32;
+        //     balls[balls.length] = ballProduce;
+        }
+
+
+        setInterval(refreshView, 16);
+
+
+        setInterval(go, 32);
+</script>

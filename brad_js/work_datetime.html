@@ -1,0 +1,31 @@
+
+<input type="number" id="year">
+<input type="button" value="=" onclick="check_year()">
+<p id="output"></p>
+<script>
+//let year = prompt("輸入年");
+function check_year(){
+    let year = parseInt(document.getElementById("year").value);
+    let isOK = false
+    if (year % 4 == 0) {
+        if (year % 400 == 0) {
+            isOK=true;
+           // document.getElementById("output").innerHTML = year + "是閏年";
+        } else if (year % 100 == 0) {
+            isOK=false;
+           // document.getElementById("output").innerHTML = year + "不是閏年";
+        } else if (year % 4 == 0) {
+            isOK=true;
+            //document.getElementById("output").innerHTML = year + "是閏年";
+        }
+
+    }else{
+        isOK=false;
+    }
+    document.getElementById("output").innerHTML = year+(isOK?'是閏年':"不是閏年");
+}
+
+
+
+
+</script>

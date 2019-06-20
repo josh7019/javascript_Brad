@@ -1,0 +1,45 @@
+<script>
+    let poker_box=new Array();
+    
+    for(let i=0;i<52;i++){                               //不重複給數字
+        
+        let isRepeat=false;
+        do{
+            poker_box[i]=parseInt(Math.random()*52);        //發牌
+            for(let j=0;j<i;j++)
+            if(poker_box[j]==poker_box[i]){
+                isRepeat=true;            //重複
+                break;
+            }else{
+                isRepeat=false;         //沒有重複
+            }
+        }while(isRepeat);
+        //義傑方法  if(istrue){i--;}
+
+    }
+// -----------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+    //發牌
+    // for(let i=0;i<4;i++){
+    //     for(let j=0;j<13;j++){
+    //         poker_box[i*13+j]=
+    //     }
+    // }
+
+
+
+
+
+
+    for(let i in poker_box){
+        document.write(poker_box[i]+"<br>");
+    }
+
+</script>

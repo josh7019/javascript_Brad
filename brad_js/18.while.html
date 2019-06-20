@@ -1,0 +1,29 @@
+
+
+1+2+3+...+
+
+<input type="number" id="n">
+<input type="button" value="=" onclick="caculate()">
+<span id="result"></span>
+
+
+
+
+<script>
+    
+    
+    
+    function caculate(){
+        let n=parseInt(document.getElementById("n").value);
+        let i=1;
+        let sum=0;
+    while(i<=n){
+        sum+=i++;
+    }
+    document.getElementById("result").innerHTML=sum;
+    }
+    
+
+
+    </script>
+

@@ -1,0 +1,30 @@
+<input type="number" id="x"/>
+<select id="op">
+    <option >+</option>
+    <option >-</option>-</option>
+    <option >*</option>
+    <option >/</option>
+</select>
+<input type="number" id="y"/>
+<input type="button" id="=" onclick="docal()" value="="/><span id="result"></span>
+
+
+
+<script>
+    function docal(){
+        let op=document.getElementById("op");
+        let opValue=op.selectedIndex;
+        let x =document.getElementById("x").value;
+        let y =document.getElementById("y").value;
+        let z;
+        x=parseInt(x);y=parseInt(y);
+        //let result=document.getElementById("result").innerHTML=x+y;
+        switch(opValue){
+            case 0:z=parseInt(x+y);break;
+            case 1:z=parseInt(x-y);break;
+            case 2:z=parseInt(x*y);break;
+            case 3:z=parseInt(x/y)+"....."+x%y;break;
+        }
+        let result=document.getElementById("result").innerHTML = z;
+    }
+</script>

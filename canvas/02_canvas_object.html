@@ -1,0 +1,12 @@
+<h1 id=head></h1>
+<hr>
+<canvas id='canvas' width="480" height="320" style="border: 1px solid" on></canvas>
+<input type="button" onclick="clears()" value="clear">
+
+<script>
+    canvas=document.getElementById("canvas");
+    let ctx=canvas.getContext('2d');
+    function clears(){
+            ctx.clearRect(0,0,canvas.width,canvas.height);
+        }  
+</script>

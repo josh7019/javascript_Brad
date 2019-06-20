@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<head>
+    
+</head>
+<body>
+    <table id="table" border="1" width="100%">
+            
+                <script>
+                    let row = 4;
+                    let start=1;
+                    let ntd=3;
+                    
+                    for(let k=0;k<row;k++){
+                        document.writeln("<tr>");
+                        for (let i = start; i < start+ntd; i++) {
+                            if((i+k)%2==1){document.writeln("<td bgcolor='pink'>");}else{
+                                    document.writeln("<td bgcolor='wheat'>")
+                            }
+                                
+                            for (let j = 1; j <= 9; j++) {
+                                
+                                let newi=i+k*ntd;
+                                document.writeln(`${newi}x${j}=${i * j}<br>`);
+                            }
+                            document.writeln("</td>");
+                        } 
+                        document.writeln("</tr>");
+                    }
+                    
+            </script>
+        
+    </table>
+</body>
+<script>
+    var table=document.getElementById("table");
+
+</script>
